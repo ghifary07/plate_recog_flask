@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Plate Number Recognition</title>
+
+    <style>
+        body {margin: 0;}
+
+        ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #111;
+        }
+
+        ul.topnav li {float: left;}
+
+        ul.topnav li h1 {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        background-color: #111;
+        }
+
+        ul.topnav li.right {float: right;}
+
+        .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        }
+
+        .sidebar a {
+        display: block;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+        }
+        
+        .sidebar a.active {
+        background-color: #04AA6D;
+        color: white;
+        }
+
+        .sidebar a:hover:not(.active) {
+        background-color: #555;
+        color: white;
+        }
+
+        div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: 1000px;
+        }
+    </style>
+
+</head>
+<body>
+    <!--NAVBAR-->
+    <ul class="topnav">
+        <li>
+            <h1>Vehicle Plate Number Recognition</h1>
+        </li>
+    </ul>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a class="active" href="{{ url_for('index') }}">Deteksi Nomor Plat</a>
+        <a href="{{ url_for('batch') }}">Deteksi Batch</a>
+        <a href="{{ url_for('training') }}">Training</a>
+    </div>
+    <div class="content">
+        {% block body %}
+                        
+        {% endblock %}
+    
+    </div>
+    <!--FOOTER-->
+    <footer>
+        <hr>
+        <p>Github</p>
+        <a href="http://www.github.com/ierolsen">GitHub ierolsen</a>
+    </footer>
+    
+</body>
+</html>

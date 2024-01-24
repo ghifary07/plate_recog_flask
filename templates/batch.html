@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container">
+        <br><br>
+        <form action="/batch" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload Custom Model:</label>
+            <input type="file" name="model_custom" accept=".onnx">
+            
+            <label for="use_custom_model">Gunakan Custom Model:</label>
+            <input type="checkbox" name="use_custom_model" id="use_custom_model">
+        </form>
+    </div>
+    <div class="container">
+        <br><br>
+        <p>Upload a zipped image File</p>
+        <form action="/batch" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="file" class="form-control" name="image_batch" accept=".zip" required>
+                <input type="submit" value="Upload" class="btn btn-outline-dark">
+            </div>
+        </form>
+    </div>
+
+    {% if upload %}
+        <h2>Download Results</h2>
+        <a href="{{ url_for('batch_download')}}" download="image_batch_detect.txt">
+            <button type="button">Download Results as Text File</button>
+        </a>
+    
+    {% endif %}
+
+{% endblock  %}
